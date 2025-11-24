@@ -5,7 +5,6 @@ import org.openqa.selenium.WebDriver;
 
 public class ProductPage {
     WebDriver  driver;
-
     By pageTitle = By.xpath("//*[@data-test='title']");
 
     public ProductPage(WebDriver driver) {

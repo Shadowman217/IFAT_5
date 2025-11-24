@@ -18,7 +18,6 @@ public  class BaseTest {
         //options.addArguments("--guest");
         // options.addArguments ("start-maximized");
         // options.addArguments("headless");
-
         driver = new ChromeDriver(options);
        // driver.manage().timeouts().implicitlyWait(7, timeUnit.SECONDS);
         loginPage = new LoginPage(driver);

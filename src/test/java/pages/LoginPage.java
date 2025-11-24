@@ -5,7 +5,6 @@ import org.openqa.selenium.WebDriver;
 
 public class LoginPage {
     WebDriver driver;
-
     By userField = By.cssSelector("[placeholder='Username']");
     By passwordField = By.cssSelector("[placeholder='Password']");
     By LoginBtn = By.id("login-button");
