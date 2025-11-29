@@ -4,24 +4,25 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import pages.LoginPage;
-import pages.ProductPage;
+import pages.ProductsPage;
 
 public  class BaseTest {
     WebDriver driver;
     LoginPage loginPage;
-    ProductPage productPage;
+    ProductsPage productsPage;
 
     @BeforeMethod
     public void setup() {
         ChromeOptions options= new ChromeOptions();
         options.addArguments("--window-size=1920,1080");
-        //options.addArguments("--guest");
+        options.addArguments("--guest");
         // options.addArguments ("start-maximized");
         // options.addArguments("headless");
+
         driver = new ChromeDriver(options);
-       // driver.manage().timeouts().implicitlyWait(7, timeUnit.SECONDS);
+        //driver.manage().timeouts().implicitlyWait(7, timeUnit.SECONDS);
         loginPage = new LoginPage(driver);
-        productPage = new ProductPage(driver);
+        productsPage = new ProductsPage(driver);
     }
 
     @AfterMethod
