@@ -7,7 +7,7 @@ public class ProductsTest extends BaseTest {
     @Test
     public void checkGoodsAdded() {
         loginPage.open();
-        loginPage.login("standard_user","secret_sauce");
+        loginPage.login("standard_user", "secret_sauce");
         productsPage.isPageLoaded();
         productsPage.addToCart("Test.allTheThings() T-Shirt (Red)");
         productsPage.addToCart("Sauce Labs Bolt T-Shirt");

@@ -6,12 +6,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 /**
- *  Данная страница описывает функционал Витрины с товарами
+ * Данная страница описывает функционал Витрины с товарами
  **/
-public class ProductsPage extends BasePage{
-       By pageTitle = By.xpath("//*[@data-test='title']");
-private static final String ADD_TO_CARD_BUTTON_PATTERN =
-        "//div[text()='%s']//ancestor::div[@class='inventory_item']//button";
+public class ProductsPage extends BasePage {
+    By pageTitle = By.xpath("//*[@data-test='title']");
+    private static final String ADD_TO_CARD_BUTTON_PATTERN =
+            "//div[text()='%s']//ancestor::div[@class='inventory_item']//button";
     private static final String DATA_TEST_PATTERN =
             "[data-test='%s']";
 
@@ -28,10 +28,11 @@ private static final String ADD_TO_CARD_BUTTON_PATTERN =
 
     public void addToCart(final String goodsName) {
         //By addGoodsToCart = By.xpath(String.format(ADD_TO_CARD_BUTTON_PATTERN, "Sauce Labs Bike Light"));
-    By addGoodsToCart = By.xpath(ADD_TO_CARD_BUTTON_PATTERN.formatted(goodsName));
-    driver.findElement(addGoodsToCart).click();
+        By addGoodsToCart = By.xpath(ADD_TO_CARD_BUTTON_PATTERN.formatted(goodsName));
+        driver.findElement(addGoodsToCart).click();
     }
+
     public String checkGoodsQuantity() {
-         return driver.findElement(cartBadge).getText();
+        return driver.findElement(cartBadge).getText();
     }
 }
