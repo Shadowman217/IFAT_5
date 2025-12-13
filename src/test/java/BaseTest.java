@@ -6,14 +6,14 @@ import org.testng.annotations.BeforeMethod;
 import pages.LoginPage;
 import pages.ProductsPage;
 
-public  class BaseTest {
+public class BaseTest {
     WebDriver driver;
     LoginPage loginPage;
     ProductsPage productsPage;
 
     @BeforeMethod
     public void setup() {
-        ChromeOptions options= new ChromeOptions();
+        ChromeOptions options = new ChromeOptions();
         options.addArguments("--window-size=1920,1080");
         options.addArguments("--guest");
         // options.addArguments ("start-maximized");
