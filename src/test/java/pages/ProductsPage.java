@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 /**
- * Данная страница описывает функционал Двитрины стр
+ * Данная страница описывает функционал Витрины с товарами
  */
 public class ProductsPage extends BasePage {
     By pageTitle = By.xpath("//*[@data-test='title']");
