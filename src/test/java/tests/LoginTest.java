@@ -4,12 +4,11 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import user.User;
 import user.UserFactory;
-import utils.PropertyReader;
 
+import static enums.TitleNaming.PRODUCTS;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 import static user.UserFactory.withAdminPermission;
-import static user.UserFactory.withLockedUserPermission;
 
 public class LoginTest extends BaseTest {
     @DataProvider()
@@ -48,6 +47,6 @@ public class LoginTest extends BaseTest {
         loginPage.open();
         loginPage.login(withAdminPermission());
 
-        assertTrue(productsPage.isPageLoaded("Products"), "Register btn is not visible");
+        assertTrue(productsPage.isPageLoaded(PRODUCTS.getDisplayName()), "Register btn is not visible");
     }
 }

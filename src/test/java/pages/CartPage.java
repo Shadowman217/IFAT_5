@@ -9,6 +9,7 @@ import java.util.List;
 
 public class CartPage extends BasePage {
     private static final By PRODUCT_NAME_LOCATOR = By.cssSelector(".inventory_item_name");
+
     public CartPage(WebDriver driver) {
         super(driver);
     }

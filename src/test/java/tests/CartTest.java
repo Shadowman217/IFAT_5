@@ -1,8 +1,6 @@
 package tests;
 
 import org.testng.annotations.Test;
-import user.UserFactory;
-
 import static org.testng.Assert.*;
 import static user.UserFactory.withAdminPermission;
 
@@ -21,7 +19,6 @@ public class CartTest extends BaseTest {
         productsPage.switchToCart();
         cartPage.isPageLoaded("Your Cart");
         System.out.println(cartPage.getProductsNames() + "!!!!!!!!!!!!!!!!!!!!!!");
-
         assertEquals(cartPage.getProductsNames().size(), 2);
         assertFalse(cartPage.getProductsNames().isEmpty());
         assertTrue(cartPage.getProductsNames().contains("Sauce Labs Bolt T-Shirt"));
