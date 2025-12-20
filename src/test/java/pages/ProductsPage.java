@@ -2,37 +2,37 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 /**
  * Данная страница описывает функционал Витрины с товарами
- **/
+ */
 public class ProductsPage extends BasePage {
-    By pageTitle = By.xpath("//*[@data-test='title']");
-    private static final String ADD_TO_CARD_BUTTON_PATTERN =
+    private static final String ADD_TO_CART_BUTTON_PATTERN =
             "//div[text()='%s']//ancestor::div[@class='inventory_item']//button";
     private static final String DATA_TEST_PATTERN =
             "[data-test='%s']";
 
-    By cartBadge = By.xpath("//*[@data-test='shopping-cart-badge']");
+    By cartBadge = By.cssSelector(DATA_TEST_PATTERN.formatted("shopping-cart-badge"));
 
     public ProductsPage(WebDriver driver) {
         super(driver);
     }
 
-    public boolean isPageLoaded() {
-        WebElement until = wait.until(ExpectedConditions.visibilityOfElementLocated(pageTitle));
-        return driver.findElement(pageTitle).isDisplayed();
+    public void addToCart(final String goodsName) {
+        // By addGoodsToCart = By.xpath(String.format(ADD_TO_CART_BUTTON_PATTERN, "Sauce Labs Bike Light"));
+        By addGoodsToCart = By.xpath(ADD_TO_CART_BUTTON_PATTERN.formatted(goodsName));
+        driver.findElement(addGoodsToCart).click();
     }
 
-    public void addToCart(final String goodsName) {
-        //By addGoodsToCart = By.xpath(String.format(ADD_TO_CARD_BUTTON_PATTERN, "Sauce Labs Bike Light"));
-        By addGoodsToCart = By.xpath(ADD_TO_CARD_BUTTON_PATTERN.formatted(goodsName));
-        driver.findElement(addGoodsToCart).click();
+    public void addToCart(final int goodsOrder) {
+        driver.findElements(By.xpath(TEXT_LOCATOR_PATTERN.formatted("Add to cart"))).get(goodsOrder).click();
     }
 
     public String checkGoodsQuantity() {
         return driver.findElement(cartBadge).getText();
+    }
+
+    public void switchToCart() {
+        driver.findElement(cartBadge).click();
     }
 }
